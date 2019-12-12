@@ -15,6 +15,7 @@
         "SharedArrayBuffer": "readonly",
         "fetch": false
     },
+    "parser": "babel-eslint",
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
@@ -36,6 +37,9 @@
         "no-use-before-define": "off",
         "react/jsx-filename-extension": "off",
         "react/prop-types": "off",
-        "comma-dangle": "off"
+        "react/state-in-constructor": [
+            0,
+            "always"
+        ]
     }
 }

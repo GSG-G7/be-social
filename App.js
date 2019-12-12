@@ -1,19 +1,45 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, StatusBar } from 'react-native';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+
+import { Home, Profile, Post } from './src/components/pages';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
+    <>
+      <StatusBar
+        barStyle="dark-content"
+        hidden={false}
+        backgroundColor="red"
+        translucent
+      />
+      <AppContainer />
+    </>
   );
 }
 
+const AppNavigator = createStackNavigator(
+  {
+    Post: {
+      screen: Post,
+    },
+    Home: {
+      screen: Home,
+    },
+    Profile: {
+      screen: Profile,
+    },
+  },
+  {
+    initialRouteName: 'Home',
+  },
+);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: 'red',
   },
 });
+
+const AppContainer = createAppContainer(AppNavigator);
